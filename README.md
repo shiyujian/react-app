@@ -1,68 +1,58 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+cnpm install
 
-## Available Scripts
+package-lock.json
+锁定依赖项到安装目录和依赖包的版本信息
+npm install 会根据 package-lock.json的版本信息 安装依赖
+cnpm install 不会根据 package-lock.json的版本信息 安装依赖
 
-In the project directory, you can run:
+开发依赖包1 
+1 cross-env
+能够提供一个设置环境变量的scripts，让你能够以unix方式设置环境变量，然后在window上也能兼容运行
+2 ip
+ip地址实用程序，获取你的IP地址，比较IP地址，验证IP地址
+3 express
+不受限制的node快速，网络框架
+4 connect-history-api-fallback
+访问初index.html索引文件以外的文件，将定位到index.html
+5 compression
+压缩中间件，支持gzip格式
+6 webpack
+打包几乎所有的资源，以供浏览器使用
+7 webpack-dev-middleware
+热模块重新加载，监视修改，作出反应
+8 webpack-merge
+为webpack设计的对象合并
+10 extract-text-webpack-plugin
+提取css所有必需模块到单独的css文件
+11 webpack-hot-middleware
+webpack 热中间件
+9 html-webpack-plugin
+将生成一个dist/index.html，为应用程序添加入口
+12 html-webpack-include-assets-plugin
+对html-webpack-plugin的扩展
+13 copy-webpack-plugin
+将整个文件或目录复制到构建目录
+14 autoprefixer
+自动前缀，向css样式中添加供应商
 
-### `yarn start`
+产品依赖包 
+1 style-loader
+样式打包器，将css-loader打包好的css代码以标签形式插入html文件，通过js字符串创建样式节点
+2 css-loader
+解析css代码中@import,url()。将css转为CommonJS
+3 postcss-loader
+让webpack处理css
+4 postcss-flexbugs-fixes
+解决Flexbug到问题
+4 less-loader
+针对less代码，编译成css代码
+5 babel-loader
+允许使用babel转换js文件
+6 url-loader
+网址加载器 将文件转换成base 64 URL
+7 file-loader
+文件加载器 将目标文件加载到程序中
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
 
-### `yarn test`
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
