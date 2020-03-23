@@ -17,20 +17,21 @@ const config = require('../config/dev');
 const { DIST } = require('../constant/path');
 
 const app = express();
+// 默认访问index.html
 app.use(history());
+// 使用压缩
 app.use(compress());
-
+// 网络包
 const compiler = webpack(config);
 
-console.log('Enable webpack dev and HMR middleware');
 app.use(
     webpackDevMiddleware(compiler, {
-        publicPath: config.output.publicPath,
+        publicPath: config.output.publicPath, // 中间件绑定的公共路径
         contentBase: DIST,
         hot: true,
         quiet: false,
         noInfo: false,
-        lazy: false,
+        lazy: false, // 重新请求时编译
         stats: {
             chunks: false,
             chunkModules: false,
@@ -38,9 +39,8 @@ app.use(
         }
     })
 );
-app.use(webpackHotMiddleware(compiler));
+app.use(webpackHotMiddleware(compiler)); // 使用热加载
 
-console.log('serve static files');
-app.use(express.static(DIST));
+app.use(express.static(DIST)); // 提供对静态文件对服务
 
 module.exports = app;

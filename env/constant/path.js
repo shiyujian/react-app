@@ -10,19 +10,20 @@ const {resolve} = require('path');
 const {theme} = require('./pkg');
 const {HOST} = require('./host');
 
+// 根路径
 const BASE = resolve(__dirname, '..', '..');
 const SRC = resolve(BASE, 'src');
 const NODE_MODULES = resolve(BASE, 'node_modules');
 const STATIC = resolve(BASE, 'static');
-const TEST = resolve(BASE, 'tests');
+// const TEST = resolve(BASE, 'tests');
 const DIST = resolve(BASE, `dist/dist_${process.env.proj}`);
 
 exports.BASE = BASE;
 exports.SRC = SRC;
 exports.DIST = DIST;
 exports.NODE_MODULES = NODE_MODULES;
-exports.APP = resolve(SRC, 'index.js');
 exports.THEME = resolve(BASE, theme);
+exports.APP = resolve(SRC, 'index.js');
 
 exports.STATIC = STATIC;
 exports.TEMPLATE = resolve(STATIC, 'template.html');
@@ -32,5 +33,5 @@ exports.REACT = resolve(NODE_MODULES, 'react/react.js');
 exports.REACT_DOM = resolve(NODE_MODULES, 'react/lib/ReactDOM');
 exports.HMR = `webpack-hot-middleware/client?path=${HOST}__webpack_hmr`;
 
-exports.TEST = TEST;
-exports.TEST_BUNDLER = resolve(TEST, 'test-bundler.js');
+// exports.TEST = TEST;
+// exports.TEST_BUNDLER = resolve(TEST, 'test-bundler.js');

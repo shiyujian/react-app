@@ -25,13 +25,13 @@ const autoprefixer = require('autoprefixer');
 
 const themeConfig = require(THEME);
 module.exports = {
-    target: 'web',
-    devtool: 'cheap-module-eval-source-map',
+    target: 'web', // 部署目标
+    devtool: 'cheap-module-eval-source-map', // 调试 原始代码 行数
     entry: {
         app: APP,
         vendor: vendors
     },
-    context: SRC,
+    context: SRC, // entry的上下文
     output: {
         filename: `[name].[hash].js`,
         path: DIST,
@@ -194,12 +194,12 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            title: description,
-            template: TEMPLATE,
+            title: description, // 标题
+            template: TEMPLATE, // 模版
             hash: false,
-            favicon: FAVICON,
-            filename: 'index.html',
-            inject: 'body'
+            favicon: FAVICON, // 指定页面图标
+            filename: 'index.html', // 生产index.html
+            inject: 'body' // 注入位置
         }),
         new HtmlWebpackIncludeAssetsPlugin({
             assets: [
@@ -209,7 +209,7 @@ module.exports = {
             append: false,
             hash: true
         }),
-        new CopyWebpackPlugin([
+        new CopyWebpackPlugin([ // 拷贝静态资源
             { from: '../static/Dockerfile' },
             { from: '../static/pip.conf' },
             { from: '../static/qh2web_nginx.conf' },
@@ -238,11 +238,11 @@ module.exports = {
                 to: 'config.js'
             }
         ]),
-        new ExtractTextPlugin('css/[name].[contenthash].css')
+        new ExtractTextPlugin('css/[name].[contenthash].css') // 提取css必需模块
     ],
     resolve: {
-        modules: ['src', 'node_modules'],
-        extensions: ['.js', '.json', '.jsx', '.react.js']
+        modules: ['src', 'node_modules'], // 解析搜索目录
+        extensions: ['.js', '.json', '.jsx', '.react.js'] // 自动解析.js .jsx
     },
-    externals
+    externals // 防止扩展依赖
 };

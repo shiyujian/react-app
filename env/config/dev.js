@@ -18,16 +18,16 @@ console.log('start ...');
 module.exports = merge(commonConfig, {
     entry: {
         app: [APP, HMR],
-        vendor: vendors
+        vendor: vendors // vendors为undefined
     },
     output: {
-        filename: `[name].[hash].js`,
-        path: DIST
+        path: DIST,
+        filename: `[name].[hash].js`
     },
     plugins: [
-        new DefinePlugin(define(process.env.proj)),
-        new HotModuleReplacementPlugin(),
-        new CommonsChunkPlugin({
+        new DefinePlugin(define(process.env.proj)), // 配置环境变量__env__
+        new HotModuleReplacementPlugin(), // 启用热替换
+        new CommonsChunkPlugin({ // 提取公共代码，提升应用加载效率
             names: ['vendor']
         })
     ]
