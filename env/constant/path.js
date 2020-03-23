@@ -1,28 +1,36 @@
 /**
- * 对应
+ * Copyright (c) 2016-present, ecidi.
+ * All rights reserved.
+ * 
+ * This source code is licensed under the GPL-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
  */
-const { resolve } = require('path'); // 完成
-const { theme } = require('./pkg'); // 完成
-const { HOST } = require('./host'); // 完成
 
-const BASE = resolve(__dirname, '..', '..'); // 完成
-const SRC = resolve(BASE, 'src'); // 完成
-const NODE_MODULES = resolve(BASE, 'node_modules'); // 完成
-const STATIC = resolve(BASE, 'static'); // 完成
-const TEST = resolve(BASE, 'tests'); // 完成 未用
-const DIST = resolve(BASE, `dist/dist_${process.env.proj}`); // 完成
+const {resolve} = require('path');
+const {theme} = require('./pkg');
+const {HOST} = require('./host');
 
-exports.BASE = BASE; // 完成 未用
-exports.SRC = SRC; // 完成 未用
-exports.DIST = DIST; // 完成
-exports.NODE_MODULES = NODE_MODULES; // 完成
-exports.APP = resolve(SRC, 'index.js'); // 完成
-exports.THEME = resolve(BASE, theme); // 完成
+const BASE = resolve(__dirname, '..', '..');
+const SRC = resolve(BASE, 'src');
+const NODE_MODULES = resolve(BASE, 'node_modules');
+const STATIC = resolve(BASE, 'static');
+const TEST = resolve(BASE, 'tests');
+const DIST = resolve(BASE, `dist/dist_${process.env.proj}`);
 
-exports.STATIC = STATIC; // 完成
-exports.TEMPLATE = resolve(STATIC, 'template.html'); // 完成
-exports.FAVICON = resolve(STATIC, `favicon_${process.env.proj}.ico`); // 完成
+exports.BASE = BASE;
+exports.SRC = SRC;
+exports.DIST = DIST;
+exports.NODE_MODULES = NODE_MODULES;
+exports.APP = resolve(SRC, 'index.js');
+exports.THEME = resolve(BASE, theme);
 
-exports.HMR = `webpack-host-middleware/client?path=${HOST}__webpack_hmr`; // 完成
+exports.STATIC = STATIC;
+exports.TEMPLATE = resolve(STATIC, 'template.html');
+exports.FAVICON = resolve(STATIC, `favicon_${process.env.proj}.ico`);
 
-exports.TEST = TEST; // 完成 未用
+exports.REACT = resolve(NODE_MODULES, 'react/react.js');
+exports.REACT_DOM = resolve(NODE_MODULES, 'react/lib/ReactDOM');
+exports.HMR = `webpack-hot-middleware/client?path=${HOST}__webpack_hmr`;
+
+exports.TEST = TEST;
+exports.TEST_BUNDLER = resolve(TEST, 'test-bundler.js');

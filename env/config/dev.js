@@ -1,30 +1,33 @@
 /**
- * 梳理完成 对应无误 可供使用
- * 下属
- * constant/env 文件 完成 i-m-d
- * config/common 文件 完成
+ * Copyright (c) 2016-present, ecidi.
+ * All rights reserved.
+ *
+ * This source code is licensed under the GPL-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
  */
-const {HotModuleReplacementPlugin, DefinePlugin, optimize} = require('webpack'); // 完成
-const CommonsChunkPlugin = optimize.CommonsChunkPlugin; // 完成
-const merge = require('webpack-merge'); // 完成
-const { DIST, APP, vendors, HMR } = require('../constant/path'); // 完成
-const { define } = require('../constant/env'); // 完成
-const commonConfig = require('./common'); // 完成
 
-console.log('此处之前没问题');
+const {HotModuleReplacementPlugin, NoErrorsPlugin, DefinePlugin, optimize} = require('webpack');
+const CommonsChunkPlugin = optimize.CommonsChunkPlugin;
+const merge = require('webpack-merge');
+const {DIST, APP, vendors, HMR} = require('../constant/path');
+const {HOST} = require('../constant/host');
+const {define} = require('../constant/env');
+const commonConfig = require('./common');
+
+console.log('start ...');
 module.exports = merge(commonConfig, {
     entry: {
-        app: [APP, HMR], // 完成
-        vendor: vendors // 完成 vendors找不到
+        app: [APP, HMR],
+        vendor: vendors
     },
     output: {
-        filename: `[name].[hash].js`, // 完成
+        filename: `[name].[hash].js`,
         path: DIST
     },
     plugins: [
-        new DefinePlugin(define(process.env.proj)), //完成 process 找不到
-        new HotModuleReplacementPlugin(), // 完成
-        new CommonsChunkPlugin({ // 完成
+        new DefinePlugin(define(process.env.proj)),
+        new HotModuleReplacementPlugin(),
+        new CommonsChunkPlugin({
             names: ['vendor']
         })
     ]

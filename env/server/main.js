@@ -1,43 +1,46 @@
 /**
- * 梳理完成，对应无误，可供使用
- * 下属：
- * config/dev文件 完成 i-m
- * constant/path文件 i-m
+ * Copyright (c) 2016-present, ecidi.
+ * All rights reserved.
+ *
+ * This source code is licensed under the GPL-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
  */
-const express = require('express'); // 完成
-const webpack = require('webpack'); // 完成
-const history = require('connect-history-api-fallback'); // 完成
-const compress = require('compression'); // 完成
-const webpackDevMiddleware = require('webpack-dev-middleware'); // 完成
-const webpackHotMiddleware = require('webpack-hot-middleware'); // 完成
 
-const config = require('../config/dev'); // 完成
-const DIST = require('../constant/path'); // 完成
+const express = require('express');
+const webpack = require('webpack');
+const history = require('connect-history-api-fallback');
+const compress = require('compression');
+const webpackDevMiddleware = require('webpack-dev-middleware');
+const webpackHotMiddleware = require('webpack-hot-middleware');
 
-const app = express(); // 完成
-app.use(history()); // 完成
-app.use(compress()); // 完成
+const config = require('../config/dev');
+const { DIST } = require('../constant/path');
 
-const compiler = webpack(config); // 完成
-console.log('此处之后没问题');
+const app = express();
+app.use(history());
+app.use(compress());
 
-// app.use(
-//     webpackDevMiddleware(compiler, { // 完成
-//         publicPath: config.output.publicPath, // 完成 publicPath不存在
-//         contentBase: DIST, // 完成
-//         hot: true,
-//         quiet: false,
-//         noInfo: false,
-//         lazy: false,
-//         stats: {
-//             chunks: false,
-//             chunkModules: false,
-//             colors: true
-//         }
-//     })
-// );
-// app.use(webpackHotMiddleware(compiler)); // 完成
+const compiler = webpack(config);
 
-// app.use(express.static(DIST)); // 完成
+console.log('Enable webpack dev and HMR middleware');
+app.use(
+    webpackDevMiddleware(compiler, {
+        publicPath: config.output.publicPath,
+        contentBase: DIST,
+        hot: true,
+        quiet: false,
+        noInfo: false,
+        lazy: false,
+        stats: {
+            chunks: false,
+            chunkModules: false,
+            colors: true
+        }
+    })
+);
+app.use(webpackHotMiddleware(compiler));
 
-module.exports = app; // 完成
+console.log('serve static files');
+app.use(express.static(DIST));
+
+module.exports = app;

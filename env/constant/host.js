@@ -1,9 +1,13 @@
 /**
- * 梳理完成 对应无误 可供使用
- * i-h
+ * Copyright (c) 2016-present, ecidi.
+ * All rights reserved.
+ *
+ * This source code is licensed under the GPL-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
  */
-const IP = require('ip').address(); // 完成
-const PORT = 3000; // 完成
-exports.IP = IP; // 完成
-exports.PORT = PORT; //完成
-exports.HOST = `http://${IP}:${PORT}/`; // 完成
+
+const IP = require('ip').address();
+const PORT = 8888;
+exports.IP = IP;
+exports.PORT = PORT;
+exports.HOST = `http://${IP}:${PORT}/`;

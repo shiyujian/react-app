@@ -1,15 +1,18 @@
 /**
- * 梳理完成 可供使用
+ * Copyright (c) 2016-present, ecidi.
+ * All rights reserved.
+ *
+ * This source code is licensed under the GPL-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
  */
 
-const { name, version, description, theme } = require('../../package.json');
+const {name, version, description, theme} = require('../../package.json');
+exports.name = name;
+exports.version = version;
+exports.description = description;
+exports.theme = theme;
 
-exports.name = name; // 完成
-exports.version = version; // 完成
-exports.description = description; // 完成
-exports.theme = theme; // 完成
-
-exports.vendors = [ // 完成
+exports.vendors = [
     'react',
     'react-redux',
     'react-router',
@@ -22,9 +25,15 @@ exports.vendors = [ // 完成
     'moment'
 ];
 
-exports.externals = { // 完成
+exports.externals = {
     'react/lib/ExecutionEnvironment': true,
-    'react/lib/ReactContent': true,
+    'react/lib/ReactContext': true,
     'react/addons': true,
     'jquery': 'window.jQuery'
-}
+};
+
+exports.testExternals = {
+    'react/addons': true,
+    'react/lib/ExecutionEnvironment': true,
+    'react/lib/ReactContext': 'window'
+};
