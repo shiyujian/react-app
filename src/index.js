@@ -10,6 +10,7 @@ if (__env__ == 'tree') {
         ReactDOM.render(<div>
            <ConfigProvider locale={zhCN}>
                 <TREE />
+                {/* <div>123</div> */}
            </ConfigProvider> 
         </div>, MOUNT_NODE);
     }

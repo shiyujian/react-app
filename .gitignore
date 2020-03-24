@@ -1,6 +1,6 @@
-# See https://help.github.com/ignore-files/ for more about ignoring files.
+# 有关更多，请参见https://help.github.com/ignore-files/
 
-# dependencies
+# 依赖关系
 /node_modules
 
 # testing

@@ -1,27 +1,39 @@
+/**
+ * Copyright (c) 2016-present, ecidi.
+ * All rights reserved.
+ *
+ * This source code is licensed under the GPL-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
 import React, { Component } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
-import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import store from '../../store';
-console.log('引入Login1');
 
 export default class App extends Component {
-    async componentDidMount() {
+    async componentDidMount () {
         const { default: Login } = await import('../../LoginQH');
-        console.log('引入Login2', 99,  Login);
+
+        console.log('App');
         this.setState({
             Login
         });
     }
+
     render () {
-        console.log('引入Login3');
-        const { Login } = this.state || {};
-        return <Provider store={store}>
-            <BrowserRouter>
-                <div style={{height: '100%'}}>
-                    {Login && <Route path='/login' component={Login} />}
-                </div>
-            </BrowserRouter>
-        </Provider>;
+        const {
+            Login
+        } =
+            this.state || {};
+        return (
+            <Provider store={store}>
+                <BrowserRouter>
+                    <div style={{ height: '100%' }}>
+                        {Login && <Route path='/login' component={Login} />}
+                    </div>
+                </BrowserRouter>
+            </Provider>
+        );
     }
 }
