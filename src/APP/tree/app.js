@@ -10,19 +10,28 @@ import React, { Component } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from '../../store';
+import {
+    Auth,
+    Header,
+    DynamicTabs,
+    Footer
+} from '_platform/components/layout';
 
 export default class App extends Component {
     async componentDidMount () {
+        const { default: Home } = await import('../../Home');
         const { default: Login } = await import('../../LoginQH');
 
         console.log('App');
         this.setState({
+            Home,
             Login
         });
     }
 
     render () {
         const {
+            Home,
             Login
         } =
             this.state || {};
@@ -30,7 +39,12 @@ export default class App extends Component {
             <Provider store={store}>
                 <BrowserRouter>
                     <div style={{ height: '100%' }}>
+                        <Route path='/:module?' component={Auth} />
+                        <Route path='/:module?' component={Header} />
+                        <Route path='/:module?' component={DynamicTabs} />
+                        {Home && <Route exact path='/' component={Home} />}
                         {Login && <Route path='/login' component={Login} />}
+                        <Route path='/:module?' component={Footer} />
                     </div>
                 </BrowserRouter>
             </Provider>

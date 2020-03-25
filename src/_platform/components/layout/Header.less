@@ -1,0 +1,196 @@
+.header {
+    width: 100%;
+    height: 80px;
+    display: table;
+    background: url(./layoutImages/navigation.png) no-repeat center center ;
+    // background: url(./images/menu.png) no-repeat center center ;
+    background-size: cover;
+    position: relative;
+    z-index: 1000;
+    .head-logo {
+      display: block;
+      float: left;
+      padding: 12px 14px 12px 10px;
+      white-space: nowrap;
+      img {
+        display: inline-block;
+        vertical-align: middle;
+        height: 56px;
+        padding-left:20px;
+        padding-right:20px;
+      }
+      .logo-icon {
+        margin: 0 8px 0 0;
+      }
+    }
+  
+    .brand {
+      line-height: 55px;
+      padding: 0 10px;
+      font-weight: normal;
+      font-size: 23px;
+      display: inline-block;
+      color: white;
+      text-align: center;
+      vertical-align: middle;
+      .dot {
+        font-size: 16px;
+        display: inline-block;
+        width: 8px;
+      }
+    }
+  
+    .nav-menu {
+      width: 100%;
+      height: 80px;
+      display: table-cell;
+      vertical-align: middle;
+      text-align: left;
+      white-space: nowrap;
+      background: none;
+      border: none;
+      .nav-item {
+        height: 80px;
+        width: 96px;
+        display: inline-block;
+        vertical-align: middle;
+        padding: 14px 0 0;
+        font-size: 12px;
+        line-height: 20px;
+        color: #fff;
+        text-align: center;
+        border: none;
+        float: none;
+        a {
+          color: white;
+        }
+        .fa {
+          width: 30px;
+          height: 30px;
+          font-size: 26px;
+          display: block;
+          margin: 0 auto 4px;
+        }
+        .title {
+          display: block;
+          height:14px;
+          font-size:14px;
+          font-family:Microsoft YaHei;
+          font-weight:400;
+          color:rgba(157,162,194,1);
+          padding-top: 8px;
+          // padding-left: 11px;
+        }
+        .selectTitle {
+          display: block;
+          height:14px;
+          font-size:14px;
+          font-family:Microsoft YaHei;
+          font-weight:bold;
+          color:rgba(0,255,235,1);
+          padding-top: 8px;
+          // padding-left: 11px;
+        }
+        &:hover {
+          background: url(./images/bg_02.png) no-repeat center center;
+        }
+        &.ant-menu-item-selected {
+          // background: url(./images/bg_02.png)no-repeat center center;
+          // font-weight: bold;
+          background: url('./layoutImages/0选中.png') no-repeat center center;
+        }
+      }
+    }
+  
+  }
+  
+  .head-nav.ant-menu-horizontal > .ant-menu-item {
+    float: none;
+  }
+  
+  @media screen and (min-width: 1440px) {
+    .header .nav-menu .nav-item .title {
+      min-width: 5.8em;
+    }
+  
+    .head-logo {
+      padding-right: 30px;
+    }
+  }
+  
+  @media screen and (min-width: 1920px) {
+    .header .nav-menu .nav-item .title {
+      min-width: 6.8em;
+    }
+  
+    .head-logo {
+      padding-right: 40px;
+    }
+  }
+  
+  .head-right {
+    float: right;
+    min-width: 128px;
+    max-width: 240px;
+    height: 80px;
+    font-size: 12px;
+    line-height: 24px;
+    color:rgba(255,255,255,1);
+    padding: 20px 20px 0;
+    white-space: nowrap;
+    text-align: right;
+  
+  }
+  
+  .head-right a {
+    color: #fff;
+  }
+  
+  .head-info {
+  }
+  .userName {
+    height:13px;
+    font-size:14px;
+    font-family:Microsoft YaHei;
+    font-weight:400;
+    color:rgba(255,255,255,1);
+    margin-right: 17px;
+  }
+  .signout {
+    height: 28px;
+    width: 28px;
+    vertical-align: middle;
+    display: inline-block;
+    background: url(./layoutImages/退出1.png) no-repeat center center;
+    &:hover {
+      background: url(./layoutImages/退出2.png) no-repeat center center;
+    }
+  }
+  
+  .head-right .fa {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+  }
+  
+  .head-right .fa-sign-out {
+    margin-left: 5px;
+    margin-right: 0;
+  }
+  
+  .head-fn {
+    margin-top: 5px;
+  }
+  
+  .head-fn .icon {
+    margin: 0 2px;
+  }
+  :global(.ant-select) {
+    display: inline-block !important;
+  }
+  :global(.ant-table-thead > tr > th) {
+    text-align: center !important;
+  }
+  :global(.ant-table table) {
+    text-align: center !important;
+  }
