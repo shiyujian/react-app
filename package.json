@@ -7,7 +7,8 @@
   "license": "GPL",
   "theme": "./src/theme.js",
   "scripts": {
-    "start_tree": "cross-env proj=tree branch=dev node env/server"
+    "start_tree": "cross-env proj=tree branch=dev node env/server",
+    "build_tree": "rimraf dist/dist_tree && cross-env proj=tree branch=dev node env/build/prod"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.0",
@@ -120,6 +121,7 @@
     "leaflet-editable": "^1.2.0",
     "wellknown": "^0.5.0",
     "underscore": "^1.9.1",
-    "smooth-scrollbar": "^8.5.1"
+    "smooth-scrollbar": "^8.5.1",
+    "qrcodejs2": "^0.0.2"
   }
 }

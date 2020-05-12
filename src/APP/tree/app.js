@@ -21,18 +21,24 @@ export default class App extends Component {
     async componentDidMount () {
         const { default: Home } = await import('../../Home');
         const { default: Login } = await import('../../LoginQH');
+        const { default: Project } = await import('../../Project');
+        const { default: Setup } = await import('../../Setup');
 
         console.log('App');
         this.setState({
             Home,
-            Login
+            Login,
+            Project,
+            Setup
         });
     }
 
     render () {
         const {
             Home,
-            Login
+            Login,
+            Project,
+            Setup
         } =
             this.state || {};
         return (
@@ -44,6 +50,8 @@ export default class App extends Component {
                         <Route path='/:module?' component={DynamicTabs} />
                         {Home && <Route exact path='/' component={Home} />}
                         {Login && <Route path='/login' component={Login} />}
+                        {Project && <Route path='/project' component={Project} />}
+                        {Setup && <Route path='/setup' component={Setup} />}
                         <Route path='/:module?' component={Footer} />
                     </div>
                 </BrowserRouter>

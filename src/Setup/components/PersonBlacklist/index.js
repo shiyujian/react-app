@@ -1,0 +1,1 @@
+export TablePerson from './TablePerson';
