@@ -85,7 +85,7 @@
     "js-base64": "^2.1.9",
     "js-cookie": "^2.2.0",
     "leaflet": "^1.2.0",
-    "lodash": "^4.17.4",
+    "lodash": "^4.17.19",
     "moment": "^2.18.1",
     "normalize.css": "^5.0.0",
     "prop-types": "^15.5.10",
